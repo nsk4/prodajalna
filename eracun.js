@@ -176,6 +176,7 @@ streznik.post('/izpisiRacunBaza', function(zahteva, odgovor) {
 // Izpis računa v HTML predstavitvi ali izvorni XML obliki
 streznik.get('/izpisiRacun/:oblika', function(zahteva, odgovor) {
   pesmiIzKosarice(zahteva, function(pesmi) {
+    vrniPodatkeOdStranke(zahteva.session.StrankaID, function(napaka, stranka) {
     if (!pesmi) {
       odgovor.sendStatus(500);
     } else if (pesmi.length == 0) {
@@ -185,11 +186,24 @@ streznik.get('/izpisiRacun/:oblika', function(zahteva, odgovor) {
       odgovor.setHeader('content-type', 'text/xml');
       odgovor.render('eslog', {
         vizualiziraj: zahteva.params.oblika == 'html' ? true : false,
-        postavkeRacuna: pesmi
-      })  
+        postavkeRacuna: pesmi,
+        strankaPodatki: stranka
+      });
     }
-  })
+   });
+  });
 })
+
+var vrniPodatkeOdStranke = function(StrankaID, callback)
+{
+  pb.all("SELECT * FROM Customer WHERE Customer.CustomerId = "+StrankaID,
+    function(napaka, vrstice) 
+    {
+      callback(napaka, vrstice);
+    }
+  );
+}
+
 
 // Privzeto izpiši račun v HTML obliki
 streznik.get('/izpisiRacun', function(zahteva, odgovor) {
