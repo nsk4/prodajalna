@@ -171,7 +171,7 @@
 		<!-- naročnik -->
 		<PodatkiPodjetja>
 			<%
-				if(typeof strankaPodatki === 'undefined')
+				if(typeof podatkiOStranki === 'undefined')
 				{
 			%>
 			<NazivNaslovPodjetja>
@@ -237,15 +237,15 @@
 		<NazivNaslovPodjetja>
 			<VrstaPartnerja>BY</VrstaPartnerja>
 			<NazivPartnerja>
-				<NazivPartnerja1><%= strankaPodatki[0].FirstName + " " + strankaPodatki[0].LastName %></NazivPartnerja1>
-				<NazivPartnerja2><%= strankaPodatki[0].Company %></NazivPartnerja2>
+				<NazivPartnerja1><%= podatkiOStranki[0].FirstName + " " + podatkiOStranki[0].LastName %></NazivPartnerja1>
+				<NazivPartnerja2><%= podatkiOStranki[0].Company %></NazivPartnerja2>
 			</NazivPartnerja>
 			<Ulica>
-				<Ulica1><%= strankaPodatki[0].Address %></Ulica1>
+				<Ulica1><%= podatkiOStranki[0].Address %></Ulica1>
 			</Ulica>
-			<Kraj><%= strankaPodatki[0].City %></Kraj>
-			<NazivDrzave><%= strankaPodatki[0].Country %></NazivDrzave>
-			<PostnaStevilka><%= strankaPodatki[0].PostalCode %></PostnaStevilka>
+			<Kraj><%= podatkiOStranki[0].City %></Kraj>
+			<NazivDrzave><%= podatkiOStranki[0].Country %></NazivDrzave>
+			<PostnaStevilka><%= podatkiOStranki[0].PostalCode %></PostnaStevilka>
 			<KodaDrzave></KodaDrzave>
 		</NazivNaslovPodjetja>
 		<FinancniPodatkiPodjetja>
@@ -270,14 +270,14 @@
 		</ReferencniPodatkiPodjetja>
 		<KontaktiPodjetja>
 			<KontaktnaOseba>
-				<ImeOsebe><%= strankaPodatki[0].FirstName + " " + strankaPodatki[0].LastName + " (" + strankaPodatki[0].Email + ")" %></ImeOsebe>
+				<ImeOsebe><%= podatkiOStranki[0].FirstName + " " + podatkiOStranki[0].LastName + " (" + podatkiOStranki[0].Email + ")" %></ImeOsebe>
 			</KontaktnaOseba>
 			<Komunikacije>
-				<StevilkaKomunikacije><%= strankaPodatki[0].Phone %></StevilkaKomunikacije>
+				<StevilkaKomunikacije><%= podatkiOStranki[0].Phone %></StevilkaKomunikacije>
 				<VrstaKomunikacije>TE</VrstaKomunikacije>
 			</Komunikacije>
 			<Komunikacije>
-				<StevilkaKomunikacije><%= strankaPodatki[0].Fax %></StevilkaKomunikacije>
+				<StevilkaKomunikacije><%= podatkiOStranki[0].Fax %></StevilkaKomunikacije>
 				<VrstaKomunikacije>FX</VrstaKomunikacije>
 			</Komunikacije>
 		</KontaktiPodjetja>

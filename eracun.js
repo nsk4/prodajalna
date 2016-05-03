@@ -164,7 +164,7 @@ streznik.post('/izpisiRacunBaza', function(zahteva, odgovor) {
     strankaIzRacuna(polja.seznamRacunov, function(stranka) {
       pesmiIzRacuna(polja.seznamRacunov, function(pesmi) {
         odgovor.setHeader('content-type', 'text/xml');
-        odgovor.render('eslog', {vizualiziraj: true, postavkeRacuna: pesmi, strankaPodatki: stranka});
+        odgovor.render('eslog', {vizualiziraj: true, postavkeRacuna: pesmi, podatkiOStranki: stranka});
       }); 
     });
   });
@@ -187,7 +187,7 @@ streznik.get('/izpisiRacun/:oblika', function(zahteva, odgovor) {
       odgovor.render('eslog', {
         vizualiziraj: zahteva.params.oblika == 'html' ? true : false,
         postavkeRacuna: pesmi,
-        strankaPodatki: stranka
+        podatkiOStranki: stranka
       });
     }
    });
