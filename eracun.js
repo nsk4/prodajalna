@@ -276,6 +276,7 @@ streznik.post('/stranka', function(zahteva, odgovor) {
 // Odjava stranke
 streznik.post('/odjava', function(zahteva, odgovor) {
   zahteva.session.StrankaID = null;
+  zahteva.session.kosarica = null;
     odgovor.redirect('/prijava') 
 })
 
