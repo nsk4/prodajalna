@@ -250,8 +250,9 @@ streznik.post('/prijava', function(zahteva, odgovor) {
     } catch (err) {
       napaka2 = true;
     }
+    odgovor.redirect('/prijava') 
   
-    odgovor.end();
+    //odgovor.end();
   });
 })
 
